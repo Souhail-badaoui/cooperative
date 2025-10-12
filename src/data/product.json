@@ -1,8 +1,8 @@
 [
-  { "id": 1, "client": "Sophie Dubois", "total": 1500, "statut": "En cours" },
-  { "id": 2, "client": "Alexandre Martin", "total": 2200, "statut": "Terminée" },
-  { "id": 3, "client": "Camille Leroy", "total": 1800, "statut": "En cours" },
-  { "id": 4, "client": "Lucas Moreau", "total": 1200, "statut": "Terminée" },
-  { "id": 5, "client": "Chloé Bernard", "total": 2000, "statut": "En cours" }
+  { "id": 1, "client": "olive oil", "total": 1500, "statut": "En cours" },
+  { "id": 2, "client": "olive oil marinee", "total": 2200, "statut": "Terminée" },
+  { "id": 3, "client": "zit zaiton", "total": 1800, "statut": "En cours" },
+  { "id": 4, "client": "Amlou louz", "total": 1200, "statut": "Terminée" },
+  { "id": 5, "client": "oil argan", "total": 2000, "statut": "En cours" }
 ]
 
