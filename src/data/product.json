@@ -1,8 +1,8 @@
 [
-  { "id": 1, "client": "olive oil", "total": 1500, "statut": "En cours" },
-  { "id": 2, "client": "olive oil marinee", "total": 2200, "statut": "Terminée" },
-  { "id": 3, "client": "zit zaiton", "total": 1800, "statut": "En cours" },
-  { "id": 4, "client": "Amlou louz", "total": 1200, "statut": "Terminée" },
-  { "id": 5, "client": "oil argan", "total": 2000, "statut": "En cours" }
+  { "id": 1, "produit": "olive oil", "price": 1500, "quantite": 10,"statut": "En cours" },
+  { "id": 2, "produit": "olive oil marinee", "price": 2200,"quantite": 11, "statut": "Terminée" },
+  { "id": 3, "produit": "zit zaiton", "price": 1800, "quantite": 15,"statut": "En cours" },
+  { "id": 4, "produit": "Amlou louz", "price": 1200, "quantite": 30,"statut": "Terminée" },
+  { "id": 5, "produit": "oil argan", "price": 2000, "quantite": 21,"statut": "En cours" }
 ]
 

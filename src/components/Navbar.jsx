@@ -1,3 +1,4 @@
+import {NavLink} from 'react-router-dom';
 function Navbar (){
     return(
     <section className="div" style={{gap:"20px" }}>
@@ -12,9 +13,9 @@ function Navbar (){
     <div className="nav-item" style={{display:"flex" , gap:"50px", textDecoration:"none" ,listStyle:"none" , 
         margin:"20px 30px"
     }}>
-            <li>Tableau de bord</li>
+            <li><NavLink to='/dashboard'>Tableau de bord</NavLink></li>
             <li>Commandes</li>
-            <li>Produits</li>
+            <li><NavLink to='/produit'>Produits</NavLink></li>
             <li>Clients</li>
        
 

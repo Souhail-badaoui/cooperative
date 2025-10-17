@@ -1,38 +1,49 @@
 import { useState } from "react";
-import { useCommandes } from "./OrderList";
+import { useCommandesStore } from "../store/OrderList";
+import toast, { Toaster } from "react-hot-toast"
+import dataInit from "../data/product.json"; 
 
-function FilterBar({ data, setData }) {
+
+function FilterBar() {
   const [nom, setNom] = useState("");
-  const [tel, setTel] = useState("");
+  const [price, setPrice] = useState("");
   const [produit, setProduit] = useState("");
   const [Quantite, setQuantite] = useState("");
-    const { setCommandes } = useCommandes();
+  const { addCommandes } = useCommandesStore();
+
 
 
   const handleAddCommande = (e) => {
     e.preventDefault();
-    if (!nom || !tel || !Quantite || !produit) {
-      alert("عافاك عمر جميع الخانات واختر على الأقل منتوج واحد");
+    if (!nom || !price || !Quantite || !produit) {
+toast('Full out all fields and select at least one product!',
+  {
+    icon: '❌',
+    style: {
+      borderRadius: '10px',
+      background: '#293b64ff',
+      color: '#fff',
+     
+    },
+  }
+);
+
       return;
     }
-      setCommandes((prev) => [
-      ...prev,
-      { id: Date.now(), nom, produit, Quantite, tel}
-    ]);
-
     const newCommande = {
       id: Date.now(),
-      client: nom,
-      total : 100,
+      produit: nom,
+      price ,
+      Quantite ,
       statut: "En cours",
     };
 
-    setData([...data, newCommande]);
+    addCommandes(newCommande);
 
-    // إعادة تعيين الفورم
     setNom("");
-    setTel("");
+    setPrice("");
     setProduit("");
+    setQuantite("");
   };
 
   return (
@@ -77,19 +88,19 @@ function FilterBar({ data, setData }) {
               
               >
                 <option value="">-- Choisir un produit --</option>
-                {data.map((item) => (
-                  <option key={item.id} value={item.client}>
-                    {item.client}
+                {dataInit.map((item) => (
+                  <option key={item.id} value={item.produit}>
+                    {item.produit}
                   </option>
                 ))}
               </select>
             </div>
             <div className="form-group">
-              <label>Telephone</label>
+              <label>price</label>
               <input
-                type="text"
-                value={tel}
-                onChange={(e) => setTel(e.target.value)}
+                type="number"
+                value={price}
+                onChange={(e) => setPrice(e.target.value)}
                 placeholder="Entrer le numero de telephone"
               />
               <label>Quantite</label>
@@ -97,12 +108,14 @@ function FilterBar({ data, setData }) {
                 type="number"
                 value={Quantite}
                 onChange={(e) => setQuantite(e.target.value)}
-               
                 placeholder="Entrer la quantite"
               />
             </div>
           </div>
-
+          <Toaster 
+          
+  position="top-center" reverseOrder={false}
+/>
       
           <div className="btn-container">
             <button type="submit">🛒 Valider la Commande</button>

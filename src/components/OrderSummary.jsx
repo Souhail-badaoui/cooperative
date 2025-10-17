@@ -1,8 +1,9 @@
-import { useCommandes } from "./OrderList";
+import { useCommandesStore } from "../store/OrderList";
 
-function OrderSummary() {
-  const { commandes } = useCommandes();
-  const total = commandes.reduce((sum, c) => sum + c.Quantite * c.tel, 0);
+ function OrderSummary() {
+
+  const { commandes } = useCommandesStore();
+  const total = commandes.reduce((sum, c) => sum + c.Quantite * c.price, 0);
 
   return (
     <div style={{
@@ -13,7 +14,7 @@ function OrderSummary() {
       width: "360px",
       position: "sticky",
       top: "40px",
-      left:"900px"
+      left:"900px",
     }}>
       <h3 style={{ borderBottom: "1px solid #334155", paddingBottom: "28px" }}>
         🧾 Résumé de Commande
@@ -31,7 +32,7 @@ function OrderSummary() {
             }}>
               <strong>{c.produit}</strong>
               <div style={{ fontSize: "14px", color: "#cbd5e1" }}>
-                {c.Quantite} × {c.tel} DH
+                {c.Quantite} × {c.price} DH
               </div>
             </div>
           ))

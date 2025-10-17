@@ -1,17 +1,13 @@
 import { useState } from "react";
+import { useCommandesStore } from "../store/OrderList";
 
-function OrderForm({ data, setData }) {
+function OrderForm() {
   const [active, setActive] = useState("Tous");
   const buttons = ["Tous", "En cours", "Terminée"];
+  const {commandes, clearCommandes} = useCommandesStore();
 
   const Filter =
-    active === "Tous" ? data : data.filter((item) => item.statut === active);
-
-  const handleDelete = (id) => {
-    const newData = data.filter((item) => item.id !== id);
-    setData(newData);
-  };
-
+    active === "Tous" ? commandes : commandes.filter((item) => item.statut === active);
   return (
     <section>
       <div
@@ -55,8 +51,8 @@ function OrderForm({ data, setData }) {
             style={{ position: "relative", right: "30px", }}
           >
             <tr className="flex" >
-              <th>CLIENT</th>
-              <th>TOTAL</th>
+              <th>PRODUIT</th>
+              <th>PRICE</th>
               <th>STATUT</th>
               <th style={{ marginLeft: "50px" }}>ACTIONS</th>
             </tr>
@@ -64,8 +60,8 @@ function OrderForm({ data, setData }) {
           <tbody>
             {Filter.map((s) => (
               <tr key={s.id}>
-                <td style={{ position: "relative", right: "37px" }}>{s.client}</td>
-                <td style={{ position: "relative", right: "30px"}}>{s.total}DH</td>
+                <td style={{ position: "relative", right: "37px" }}>{s.produit}</td>
+                <td style={{ position: "relative", right: "30px"}}>{s.price}DH</td>
                 <td >
                   <span
                     className={s.statut === "En cours" ? "orange" : "green"}
@@ -76,7 +72,7 @@ function OrderForm({ data, setData }) {
                 </td>
                 <td>
                   <span
-                    onClick={() => handleDelete(s.id)}
+                    onClick={() => clearCommandes(s.id)}
                     style={{ cursor: "pointer" }}
                   >
                     🗑️
