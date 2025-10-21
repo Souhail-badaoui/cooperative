@@ -4,13 +4,11 @@ import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from "rec
 export default function OrderCard() {
   const { commandes } = useCommandesStore();
 
-  // 📈 الإحصائيات
   const totalCommandes = commandes.length;
   const enCours = commandes.filter((c) => c.statut === "En cours").length;
   const terminees = commandes.filter((c) => c.statut === "Terminée").length;
   const totalVentes = commandes.reduce((acc, c) => acc + c.total, 0);
 
-  // ⏱️ chart: نولد بيانات بسيطة من الطلبات
   const dataChart = commandes.map((c, index) => ({
     name: `Cmd ${index + 1}`,
     ventes: c.total,
@@ -20,7 +18,6 @@ export default function OrderCard() {
     <div className="dashboard" style={{ padding: "40px", color: "#fff" }}>
       <h2 style={{ marginBottom: "30px" }}>📊 Tableau de Bord</h2>
 
-      {/* 🧩 Cards ديال الإحصائيات */}
       <div style={{
         display: "grid",
         gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
@@ -45,7 +42,6 @@ export default function OrderCard() {
         </div>
       </div>
 
-      {/* 📉 Chart ديال المبيعات */}
       <div style={{ background: "#1e293b", padding: "20px", borderRadius: "10px" }}>
         <h3 style={{ marginBottom: "20px" }}>Évolution des ventes</h3>
         <ResponsiveContainer width="100%" height={300}>

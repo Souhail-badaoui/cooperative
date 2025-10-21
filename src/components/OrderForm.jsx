@@ -14,8 +14,8 @@ function OrderForm() {
         className="list"
         style={{
           backgroundColor: "#1e293b",
-          maxWidth: "750px",
-          marginLeft: "60px",
+          maxWidth: "850px",
+          marginLeft: "207px",
           marginBottom: "60px",
           marginTop: "50px",
           borderRadius: "10px",

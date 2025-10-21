@@ -21,7 +21,7 @@ toast('Full out all fields and select at least one product!',
     icon: '❌',
     style: {
       borderRadius: '10px',
-      background: '#293b64ff',
+      background: '#521313ff',
       color: '#fff',
      
     },
@@ -54,8 +54,8 @@ toast('Full out all fields and select at least one product!',
           backgroundColor: "#1e293b",
           width: "100%",
           borderRadius: "10px",
-          maxWidth: "750px",
-          marginLeft: "60px",
+          maxWidth: "840px",
+          marginLeft: "210px",
           padding: "30px 50px",
         }}
       >
@@ -66,10 +66,9 @@ toast('Full out all fields and select at least one product!',
           <div
             className="form-input"
             style={{
-              width: "70px",
               color: "white",
               display: "flex",
-              gap: "50px",
+              gap: "80px",
               borderRadius: "30px",
             }}
           >
@@ -84,9 +83,7 @@ toast('Full out all fields and select at least one product!',
               <label>Produits</label>
               <select
                 value={produit}
-                onChange={(e) => setProduit(e.target.value)}
-              
-              >
+                onChange={(e) => setProduit(e.target.value)}>
                 <option value="">-- Choisir un produit --</option>
                 {dataInit.map((item) => (
                   <option key={item.id} value={item.produit}>
@@ -95,6 +92,7 @@ toast('Full out all fields and select at least one product!',
                 ))}
               </select>
             </div>
+            
             <div className="form-group">
               <label>price</label>
               <input

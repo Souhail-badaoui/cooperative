@@ -1,18 +1,17 @@
 import { useEffect, useState } from "react";
 import { useCommandesStore } from "../store/OrderList";
+import "./ProductSelector.css"
 import products from "../data/product.json";
 
 function ProductSelecter() {
   const { commandes, setCommandes, addCommandes, deleteProduct } = useCommandesStore();
   const [showForm, setShowForm] = useState(false);
   const [newProduct, setNewProduct] = useState({ produit: "", price: "", quantite: "" });
-
-  // تحميل البيانات من JSON عند البداية
   useEffect(() => {
     if (commandes.length === 0) {
-      setCommandes(products); // هنا نضيف كل منتج من JSON للstore
+      setCommandes(products); 
     }
-  }, []); // empty array = تتنفذ مرة واحدة فقط
+  }, []); 
 
   const handleAdd = () => {
     if (!newProduct.produit || !newProduct.price || !newProduct.quantite) return;
@@ -25,7 +24,8 @@ function ProductSelecter() {
     <div style={{ padding: "20px", color: "white" }}>
       <button onClick={() => setShowForm(true)}>+ Nouveau Produit</button>
 
-      <table style={{ width: "100%", marginTop: "10px" }}>
+      <table className="tableau" style={{ width: "100%", marginTop: "10px" }}>
+        <div className="select">
         <thead>
           <tr>
             <th>Produit</th>
@@ -46,6 +46,7 @@ function ProductSelecter() {
             </tr>
           ))}
         </tbody>
+        </div>
       </table>
 
       {showForm && (

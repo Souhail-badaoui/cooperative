@@ -15,7 +15,7 @@ function App (){
          
     <div className='content'>
         <Navbar/>
-         <h2 style={{marginTop:"50px", position:"relative" , marginLeft:"40px" , fontFamily:"600" , color:"#ffffff"}}>Gestion Des <span>Commandes</span></h2>
+         <h2 style={{marginTop:"70px", position:"relative" ,bottom:"40px", marginLeft:"40px" , fontFamily:"600" , color:"#ffffff"}}>Gestion Des <span>Commandes</span></h2>
       </div>
      
       <Routes>
